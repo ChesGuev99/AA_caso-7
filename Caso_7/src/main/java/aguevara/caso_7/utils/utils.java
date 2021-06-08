@@ -53,6 +53,11 @@ public class utils {
         System.out.println(orderedList.size());
     }
 
+    public void deleteClave(ArrayList<String> lista){
+        lista.remove(0);
+        setTotal(getTotal()-1);
+    }
+
 
 
 }

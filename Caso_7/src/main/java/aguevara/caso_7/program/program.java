@@ -33,7 +33,23 @@ public class program {
         //System.out.println(u.getOrderedList());
         System.out.println(u.getTotal());
         probabilista prob = new probabilista();
-        prob.tableUpdate(u);
+        String Key = "";
+        int intentos = 0;
+        while(true){
+            prob.tableUpdate(u);
+            Key = prob.probability(u);
+            if(Key == "2AK"){
+                break;
+            }
+            else{
+                if(u.getOrderedList().get(prob.lastRand).size() != 0){
+                    u.deleteClave(u.getOrderedList().get(prob.lastRand));
+                }
+            }
+            intentos++;
+        }
+
+        
         
     }
     
