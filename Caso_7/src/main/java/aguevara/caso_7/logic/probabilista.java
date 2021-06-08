@@ -42,8 +42,8 @@ public class probabilista {
             //System.out.println(u.getOrderedList().get(i).size()); 
             //System.out.println((double) u.getOrderedList().get(i).size() / (double)50);
             double percentage  =  (double) u.getOrderedList().get(i).size() / (double)u.getTotal();
-            //addNumber(i, percentage);
-            distribution.put(i,percentage);
+            addNumber(i, percentage);
+            //distribution.put(i,percentage);
         }
         System.out.println(distribution);
 
@@ -51,7 +51,7 @@ public class probabilista {
 
     public int getRandom(utils u) {
         double rand = Math.random();
-        double ratio = 1.0f / u.total;
+        double ratio = 1.0f / distSum;
         double tempDist = 0;
         for (Integer i : distribution.keySet()) {
             tempDist += distribution.get(i);
@@ -69,6 +69,7 @@ public class probabilista {
         if(u.getOrderedList().get(random).size()!=0){
             String clave = u.getOrderedList().get(random).get(0);
             System.out.println(clave);
+            u.deleteClave(u.getOrderedList().get(random));
             return clave;
         }
         return "";

@@ -54,8 +54,10 @@ public class utils {
     }
 
     public void deleteClave(ArrayList<String> lista){
+        System.out.println(lista);
         lista.remove(0);
         setTotal(getTotal()-1);
+
     }
 
 

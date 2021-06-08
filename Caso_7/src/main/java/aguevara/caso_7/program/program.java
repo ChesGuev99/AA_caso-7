@@ -30,21 +30,18 @@ public class program {
         cubo.cubeGraph();
         utils u = new utils();
         u.orderList(cubo.getClaves());
-        //System.out.println(u.getOrderedList());
         System.out.println(u.getTotal());
         probabilista prob = new probabilista();
         String Key = "";
         int intentos = 0;
         while(true){
+            //System.out.println(u.getOrderedList());
+            //System.out.println("total" + u.getTotal());
             prob.tableUpdate(u);
             Key = prob.probability(u);
-            if(Key == "2AK"){
+            if(Key.equals("2AK")){
+                System.out.println("FELICIDADES, INTENTOS: " + intentos);
                 break;
-            }
-            else{
-                if(u.getOrderedList().get(prob.lastRand).size() != 0){
-                    u.deleteClave(u.getOrderedList().get(prob.lastRand));
-                }
             }
             intentos++;
         }
